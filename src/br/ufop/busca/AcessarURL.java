@@ -66,7 +66,7 @@ public class AcessarURL {
          System.out.println("Erro ao criar URL. Formato inválido.");
     
       } catch (IOException e2) {
-         System.out.println("Palavra não encontrada, talvez alguma letra tenha sido digitada errada.");
+         System.out.println("Palavra não encontrada, talvez alguma letra tenha sido digitada errada.\nCertifique-se que a palavra não contém acentos gráficos ou cedilha");
         
       }
       }
