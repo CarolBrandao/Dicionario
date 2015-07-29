@@ -71,8 +71,10 @@ public class AcessarURL {
         			 line = line.replace("</a>", "");
         			 //System.out.println(line);
         		 } 
-        		 
+        		//removendo espacos em branco
         		line = line.replaceAll("  ", ""); 
+        		
+        		//corrando só o significado do string
         		int inicio = line.indexOf(">");
         		int fim = line.indexOf("</p>");
         		String significado = line.substring(inicio+1, fim);
