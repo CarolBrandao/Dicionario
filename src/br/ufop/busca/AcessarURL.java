@@ -62,13 +62,22 @@ public class AcessarURL {
          			line = line + br.readLine();
          			
          		}
-            	 
-        		 int inicio = line.indexOf(">");
-        		 int fim = line.indexOf("</p>");
-        		 String significado = line.substring(inicio+1, fim);
-        		 System.out.println(significado);
-        		 System.out.println();
-        		 break;
+        		 //retirando links
+        		 if( line.contains("<a href") ){
+        			 int incio_link  = line.indexOf("<a href");
+        			 int fim_link = line.indexOf("/\">");
+        			 String link = (line.substring(incio_link, fim_link+3));
+        			 line = line.replace(link, "");
+        			 line = line.replace("</a>", "");
+        			 //System.out.println(line);
+        		 } 
+        		 
+        		int inicio = line.indexOf(">");
+        		int fim = line.indexOf("</p>");
+        		String significado = line.substring(inicio+1, fim);
+        		System.out.println(significado);
+        		System.out.println();
+        		break;
         	 }
             
          }
