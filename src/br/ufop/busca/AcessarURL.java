@@ -40,18 +40,18 @@ public class AcessarURL {
         	 if (line.contains("description") && line.contains("<p itemprop=")){
         		 //System.out.println(line);
         		 
+        		 // Se o conteúdo da linha não for até o fim do parágrafo ou até a quebra de linha leia mais uma linha
         		 if( ! (line.contains("</p") ) &&  ! (line.contains("<br") )){
         			 line = line + br.readLine();
         			 //System.out.println(line);
         		 }
         		 // conferindo se tem a quebra de linha <br />  no meio da String
-        		 while (line.contains("<br />")){
+        		 while (line.contains("<br />") || line.contains("<br/>")){
         			//System.out.println(line);
+        			 line = line.replace("<br/>"," "); 
         			line = line.replace("<br />"," ");
         			line = line + br.readLine();
-        			if(line.contains("</p>")){
-        				break;
-        			}
+        			
         		}
 
         		 // conferindo se tem a quebra de linha <br />  no meio da String
@@ -60,9 +60,7 @@ public class AcessarURL {
          			line = line.replace("<strong>","");
          			line = line.replace("</strong>","");
          			line = line + br.readLine();
-         			if(line.contains("</p>")){
-         				break;
-         			}
+         			
          		}
             	 
         		 int inicio = line.indexOf(">");
@@ -83,7 +81,7 @@ public class AcessarURL {
     
       } catch (IOException e2) {
          System.out.println("Palavra não encontrada, talvez alguma letra tenha sido digitada errada.\nCertifique-se que a palavra não contém acentos gráficos ou cedilha");
-        
+         System.out.println();
       }
       }
  
