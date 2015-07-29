@@ -48,8 +48,8 @@ public class AcessarURL {
         		 // conferindo se tem a quebra de linha <br />  no meio da String
         		 while (line.contains("<br />") || line.contains("<br/>")){
         			//System.out.println(line);
-        			 line = line.replace("<br/>"," "); 
-        			line = line.replace("<br />"," ");
+        			 line = line.replace("<br/>","\n"); 
+        			line = line.replace("<br />","\n");
         			line = line + br.readLine();
         			
         		}
@@ -71,6 +71,7 @@ public class AcessarURL {
         			 line = line.replace("</a>", "");
         			 //System.out.println(line);
         		 } 
+        		 
         		line = line.replaceAll("  ", ""); 
         		int inicio = line.indexOf(">");
         		int fim = line.indexOf("</p>");
