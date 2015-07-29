@@ -71,7 +71,7 @@ public class AcessarURL {
         			 line = line.replace("</a>", "");
         			 //System.out.println(line);
         		 } 
-        		 
+        		line = line.replaceAll("  ", ""); 
         		int inicio = line.indexOf(">");
         		int fim = line.indexOf("</p>");
         		String significado = line.substring(inicio+1, fim);
