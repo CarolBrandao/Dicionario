@@ -38,8 +38,13 @@ public class AcessarURL {
          while( (line = br.readLine()) != null ){
         	 
         	 if (line.contains("description") && line.contains("<p itemprop=")){
-        		
-        		 // conferindo se tem a quebra de linha <br /> no meio da String
+        		 //System.out.println(line);
+        		 
+        		 if( ! (line.contains("</p") ) &&  ! (line.contains("<br") )){
+        			 line = line + br.readLine();
+        			 //System.out.println(line);
+        		 }
+        		 // conferindo se tem a quebra de linha <br />  no meio da String
         		 while (line.contains("<br />")){
         			//System.out.println(line);
         			line = line.replace("<br />"," ");
@@ -48,6 +53,17 @@ public class AcessarURL {
         				break;
         			}
         		}
+
+        		 // conferindo se tem a quebra de linha <br />  no meio da String
+        		 while (line.contains("<strong>")){
+         			//System.out.println(line);
+         			line = line.replace("<strong>","");
+         			line = line.replace("</strong>","");
+         			line = line + br.readLine();
+         			if(line.contains("</p>")){
+         				break;
+         			}
+         		}
             	 
         		 int inicio = line.indexOf(">");
         		 int fim = line.indexOf("</p>");
